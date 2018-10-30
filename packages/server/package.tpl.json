@@ -1,0 +1,10 @@
+{
+    "name": "@red/server",
+    "version": "0.0.0-PLACEHOLDER",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "license": "UNLICENSED",
+    "peerDependencies": {
+        "@types/node": "^8.0.31",
+    }
+}

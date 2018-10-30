@@ -1,0 +1,26 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+load("//tools/mocha:mocha_node_test.bzl", "mocha_node_test")
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_test")
+
+ts_library(
+    name = "test_lib",
+    testonly = 1,
+    srcs = glob(["**/*.spec.ts"]),
+    deps = [
+        "//packages/server:shared-red-server-library",
+        "@npm//@types"
+    ],
+)
+
+mocha_node_test(
+    name = "shared-red-server-library_test",
+    srcs = [
+        ":test_lib"
+    ],
+    data = [
+        "@npm//mocha",
+        "@npm//chai"
+    ]
+)
